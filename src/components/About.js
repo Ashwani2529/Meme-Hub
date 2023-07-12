@@ -91,10 +91,7 @@ export default function About(props) {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              This word counter software works in any web browsers such as
-              Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to
-              count characters in facebook, blog, books, excel document, pdf
-              document, essays, etc.
+             Baad me daluga ye sab
             </div>
           </div>
         </div>

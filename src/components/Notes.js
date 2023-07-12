@@ -117,7 +117,7 @@ const Notes = (props) => {
                     Image
                   </label>
                   <input
-                    type="text"
+                    type="file"
                     className="form-control"
                     id="edescription"
                     name="edescription"

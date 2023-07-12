@@ -18,7 +18,7 @@ const Home = (props) => {
             </p>
             <p>
               <b className="boldy">Meme:-</b>
-              {note.description}
+              <img src={`./models/uploads/${note.description}`} alt="photo" />
             </p>
           </div>
         </div>

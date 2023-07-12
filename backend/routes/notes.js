@@ -24,6 +24,7 @@ router.get("/fetcheverything", async (req, res) => {
 });
 
 router.use(express.static(__dirname+"./models/"));
+
 var Storage=multer.diskStorage({
   destination:"./models/uploads/",
   filename:(req,file,cb)=>{
