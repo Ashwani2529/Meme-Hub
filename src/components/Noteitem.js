@@ -20,7 +20,7 @@ const Noteitem = (props) => {
           </p>
           <p>
             <b className="boldy">Meme:-</b>
-            <img src={`./models/uploads/${note.description}`} alt="photo" />
+            <img src={`../uploads/${note.description}`} alt="photo" />
           </p>
           <i className="far fa-trash-alt" onClick={()=>{deleteNote(note._id);props.showAlert("Deleted","success");}}></i>
           <i className="far fa-edit" onClick={()=>{updateNote(note);}}></i>

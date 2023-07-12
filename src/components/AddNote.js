@@ -37,7 +37,7 @@ const AddNote = (props) => {
         </h1>
       </div>
       <div className="container">
-        <form id="form" method="post" encType="multipart/form-data">
+        <form action= "/upload" id="form" method="post" encType="multipart/form-data">
           <div className="col-sm-6 mx-1">
             <label id="sr-only" htmlFor="title">
               Caption

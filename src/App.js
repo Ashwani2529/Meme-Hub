@@ -13,7 +13,7 @@ import Alert from "./components/Alert"
 import All from "./components/All";
 import Left from "./components/Left";
 import Right from "./components/Right";
-import Postcard from "./components/Postcard";
+// import Postcard from "./components/Postcard";
 
 function App() {
   const [alert,setAlert]=useState(null);
@@ -57,7 +57,7 @@ function App() {
           <Route path="/createuser" element={<Signup  mode={mode} showAlert={showAlert}/>} />
           <Route path="/left" element={<Left mode={mode}/>}/>
           <Route path="/right" element={<Right mode={mode}/>}/>
-          <Route path="/post" element={<Postcard mode={mode}/>}/>
+          {/* <Route path="/post" element={<Postcard mode={mode}/>}/> */}
         </Routes>
       
       </Router>

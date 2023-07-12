@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer"); 
+
 const { body, validationResult } = require("express-validator");
 const Note= require("../models/Note");
 const fetchUser = require("../middleware/fetchUser");
@@ -23,20 +23,9 @@ router.get("/fetcheverything", async (req, res) => {
   }
 });
 
-router.use(express.static(__dirname+"./models/"));
-
-var Storage=multer.diskStorage({
-  destination:"./models/uploads/",
-  filename:(req,file,cb)=>{
-    cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname));
-  }
-});
-var upload=multer({
-  storage:Storage
-}).single('file');
 
 router.post(
-  "/addnote",upload,
+  "/addnote",
   fetchUser,
   [
     body("title").isLength({ min: 3 }),
@@ -54,7 +43,6 @@ router.post(
         title,
         tag,
         description,
-        
         user: req.user.id,
       });
       const savedNote = await note.save();
