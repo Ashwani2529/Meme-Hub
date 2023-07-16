@@ -1,0 +1,164 @@
+/* indexleft.modulus.css */
+
+.box {
+    width: 300px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .panel-open {
+    transform: translateX(0);
+  }
+  
+  .panel-closed {
+    transform: translateX(-100%);
+  }
+  
+  .toggle-button {
+    display: flex;
+    justify-content: left;
+    position:relative;
+    top: 3px;
+    right: -2px;
+    z-index: 9;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #860101;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .hide-button {
+    display: block;
+  }
+  
+  ._213eRC {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ddd;
+  }
+  
+  .toggle-icon {
+    width: 16px;
+    height: 27px;
+    background-color: #2874F1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .hide-icon {
+    display: none;
+  }
+  
+ 
+  ._167Mu3 {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  ._213eRC {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ddd;
+  }
+  
+  ._2gmUFU {
+    font-weight: bold;
+  }
+  
+  ._3DyGEM {
+    fill: #000;
+  }
+  
+  ._3FPh42 {
+    padding: 10px;
+  }
+  
+  ._2d0we9 {
+    margin-bottom: 10px;
+  }
+  
+  ._2pBqj6 {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  ._34uFYj {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+  }
+  
+  ._4921Z {
+    margin-bottom: 5px;
+  }
+  
+  ._1Y4Vhm {
+    display: flex;
+    align-items: center;
+  }
+  
+  ._2iDkf8 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  ._30VH1S {
+    display: none;
+  }
+  
+  ._24_Dny {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+  }
+  
+  ._3879cV {
+    font-size: 14px;
+  }
+  
+  ._30VH1S:checked + ._24_Dny {
+    background-color: #2874F1;
+    border-color: #2874F1;
+  }
+  
+  ._30VH1S:checked + ._24_Dny::after {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .QvtND5 {
+    text-align: center;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .QvtND5 span {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,15 @@
+.box{
+    display:flow-root;
+    float: right;
+       justify-content: flex-end;
+    width: 30%;
+    background-color: #f1f1f1;
+    transition: transform 0.3s ease;
+    /* position: relative; */
+    overflow: hidden;
+}
+#fuck{
+    display: contents;
+    flex-direction:column-reverse;
+   
+}
