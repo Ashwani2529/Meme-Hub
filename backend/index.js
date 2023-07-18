@@ -2,11 +2,9 @@ const connectToMongo = require("./db.js");
 const express = require("express");
 var cors = require('cors');
 const multer = require('multer');
-const { json } = require("react-router-dom");
 
 const app = express();
 const port = 5000;
-
 app.use(cors());
 
 const storage = multer.diskStorage({

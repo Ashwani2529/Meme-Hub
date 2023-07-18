@@ -170,8 +170,11 @@ const Notes = (props) => {
               note={note}
            
             />
+            
           );
         })}
+
+        
       </div>
     </>
   );

@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import notecontext from "./context/notes/notecontext";
 import Home from "./Home";
 import "../App.css";
-
 const All = (props) => {
   const context = useContext(notecontext);
   const { notes, fetchEverything } = context;
@@ -19,6 +18,10 @@ const All = (props) => {
         {Array.from(notes).map((note)  => (
           <Home key={note._id} fetchEverything={fetchEverything} showAlert={props.showAlert} note={note} />
         ))}
+
+{/* {Array.from(getUser).map((user)  => (
+          < UserDetails key={user._id} user={user} />
+        ))} */}
       </div>
     </>
   );

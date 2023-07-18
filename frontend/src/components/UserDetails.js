@@ -1,47 +1,61 @@
-// import React, { useState, useEffect } from "react";
-// const UserDetails = () => {
-//   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", gender: "" });
+import React, { useState, useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import "./indexing.module.css";
+const UserDetails = () => {
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+    gender: "",
+  });
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      fetchData();
+    }
+  }, []);
 
-//   useEffect(() => {
-//     // Fetch the user data on component mount
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch('http://localhost:5000/api/auth/getuser');
-//         const data = await response.json();
-//         setCredentials(data);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-//     fetchData();
-//   }, []);
-  
-//   const onChange = (e) => {
-//     // Update the corresponding property in the credentials object
-//     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-//   };
+  const fetchData = async () => {
+    try {
+      
+      const response = await fetch("http://localhost:5000/api/auth/getuser",{
+        method:'POST',
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify({"email":localStorage.getItem('email')})
+      });
+      const data = await response.json();
+      setCredentials(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-//   return (
-//     <div className="col-md">
-//       <div className="card">
-//         <div className="card-body">
-//           <p>
-//             <b className="boldy">Name: </b>
-//             {credentials.name}
-//           </p>
-//           <p>
-//             <b className="boldy">E-mail:</b>
-//             {credentials.email}
-//           </p>
-//           <p>
-//             <b className="boldy">Gender:</b>
-//             {credentials.gender}
-//           </p>
-  
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="col-md my-4">
+      <div className="card mx-2">
+        <div className="card-body my-2">
+          <p>
+            <b className="boldy">Name: </b>
+            {credentials.name}
+          </p>
 
-// export default UserDetails;
+          <p>
+            <b className="boldy">E-mail:</b>
+            {credentials.email}
+          </p>
+          <p>
+            <b className="boldy">Password: </b>
+            {credentials.password}
+          </p>
+          <p>
+            <b className="boldy">Gender:</b>
+            {credentials.gender}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UserDetails;

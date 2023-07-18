@@ -2,7 +2,6 @@ const express = require("express");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
-const fetchUser = require("../middleware/fetchUser");
 const { body, validationResult } = require("express-validator");
 const router = express.Router();
 const nodemailer = require('nodemailer');
@@ -27,6 +26,7 @@ router.post(
         return res.status(400).json({ success,error: "This Email already exists" });
       }
       const salt = await bcrypt.genSalt(10);
+      // const pp=req.body.password;
       const securePass = await bcrypt.hash(req.body.password, salt);
       user = await User.create({
         name: req.body.name,
@@ -96,6 +96,7 @@ router.post(
         success=false;
         return res.status(400).send({ success,error: "Please login with correct credentials" });
       }
+      
       const passcomp = await bcrypt.compare(password, user.password);
       if (!passcomp) {
         success=false;
@@ -107,8 +108,9 @@ router.post(
         }
       }
       const hashcode = jwt.sign(data, JWT);
+      // console.log(hashcode);
       success=true;
-      res.json({ success,hashcode });
+      res.json({ success,hashcode,email });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Server Error Occured");
@@ -116,14 +118,32 @@ router.post(
   }
 );
 //fetchUser
-router.post("/getuser", fetchUser, async (req, res) => {
+router.post("/getuser",[
+  body("email", "Enter a valid Email").isEmail()
+], async (req, res) => {
   try {
-    const userId = req.user.id;
-    const user = await User.findById(userId).select("password")
-    res.send(user);
+    let user = await User.findOne({ email:req.body.email });
+    // console.log(pp);
+    // console.log(user);
+    const data = {
+      user: {
+        id: user.id,
+        name:user.name,
+        email:user.email,
+        password:user.password,
+        gender:user.gender
+      }
+    }
+    if (data) {
+      const { name, email, password, gender } = data.user;
+      res.json({ name, email,password, gender });
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server Error Occured");
+    res.status(500).send("Server Error Occurred");
   }
 });
+
 module.exports = router;

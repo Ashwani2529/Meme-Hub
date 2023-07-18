@@ -13,7 +13,9 @@ import Alert from "./components/Alert"
 import All from "./components/All";
 import Left from "./components/Left";
 import Right from "./components/Right";
-// import Postcard from "./components/Postcard";
+import UserDetails from "./components/UserDetails";
+import Postcard from "./components/Postcard";
+import Page from "./Page";
 
 function App() {
   const [alert,setAlert]=useState(null);
@@ -49,16 +51,14 @@ function App() {
         <Navbar mode={mode} toggleMode={toggleMode} key={new Date()} />
         <Alert alert={alert}/>
         <Routes>
-       
+        <Route path="/user" element={<UserDetails mode={mode} showAlert={showAlert} />} />
           <Route path="/" element={<All mode={mode} />} />
           <Route path="/home" element={<Save mode={mode} showAlert={showAlert}/>} />
           <Route path="/about" element={<About mode={mode}/>} />
           {/* <Route path="/getuser" element={<UserDetails mode={mode} />}/> */}
           <Route path="/login" element={<Login  mode={mode} showAlert={showAlert}/>} />
           <Route path="/createuser" element={<Signup  mode={mode} showAlert={showAlert}/>} />
-          <Route path="/left" element={<Left mode={mode}/>}/>
-          <Route path="/right" element={<Right mode={mode}/>}/>
-          {/* <Route path="/post" element={<Postcard mode={mode}/>}/> */}
+          <Route path="/page" element={<Page  mode={mode} showAlert={showAlert}/>} />
         </Routes>
       
       </Router>

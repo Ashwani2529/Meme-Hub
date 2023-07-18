@@ -1,0 +1,49 @@
+#instaPostCard {
+    background-color: #000;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    margin: 110px;
+    width:40%;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #profilePicture {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+   background-image: url("qw.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  #postImage {
+    width: 100%;
+    background-image: url("mn.jpg");
+ 
+    height: auto;
+  }
+  .container{
+    display: inline-table;
+    justify-content: center;
+  }
+  #tagIconArea {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  .material-icons {
+    color: #fff;
+  }
+ 
+  #countLikes {
+    font-weight: bold;
+  }
+  
+  #postTextUserName a {
+    color: black;
+  }
+  
+
+  

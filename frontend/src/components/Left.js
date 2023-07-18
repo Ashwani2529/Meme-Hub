@@ -42,14 +42,14 @@ function Left() {
     <>
       <div className='button'>
         <button className={`toggle-button ${isPanelOpen ? 'hide-button' : ''}`} onClick={togglePanel}>
-          ^
+          {isPanelOpen?'^':'>'}
         </button>
       </div>
-      <div className={`box my-2 ${isPanelOpen ? 'panel-open' : 'panel-closed'}`}>
+      <div className={`boxpo my-2 ${isPanelOpen ? 'panel-open' : 'panel-closed'}`}>
         <section className="_167Mu3 _2hbLCH">
           <div className="_213eRC _2ssEMF mx-2">
             <div className="_2gmUFU _3V8raom">Filters</div>
-            <button className={`toggle-icon ${isPanelOpen ? 'hide-icon' : ''}`} onClick={togglePanel}></button>
+            <button className={`toggle-icon ${isPanelOpen ? '' : ''}`} onClick={togglePanel}></button>
           </div>
           <div className="_3FPh42">
             <div className="_2d0we9">

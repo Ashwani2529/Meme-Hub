@@ -20,11 +20,11 @@ const Login = () => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     if (json.success) {
       localStorage.setItem("token", json.hashcode);
+      localStorage.setItem("email", json.email);
       toast.success("Logged in Successfully",{ position: toast.POSITION.TOP_CENTER});
-      // props.showAlert("Logged in Successfully","success")
       navigate("/home");
     } 
       else{

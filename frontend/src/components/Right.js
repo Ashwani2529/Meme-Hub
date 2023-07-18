@@ -2,7 +2,7 @@ import React from 'react'
 import './indexright.modulus.css'
 function Right() {
   return (
-    <div className='box'>
+    <div className='boxpox'>
         <div id="fuck"  style={{border:'2px solid green'}} className="col-md-5 col-lg-4 order-md-last">
         <h4 className="d-flex justify-content-between align-items-center mb-3">
           <span className="text-primary">Your cart</span>

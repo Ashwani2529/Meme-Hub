@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 const Navbar=(props) =>{
   let navigate=useNavigate();
+  const handleUser=()=>{
+    toast.success("Welcome",{position: toast.POSITION.TOP_CENTER});
+    navigate('/user');
+  }
   const handleLogout=()=>{
     toast.info("Logged out",{position: toast.POSITION.TOP_CENTER});
     localStorage.removeItem('token');
@@ -55,7 +59,8 @@ const Navbar=(props) =>{
           {!localStorage.getItem('token')?<form className="d-flex mx-2"> 
           <Link className="btn btn-primary mx-1" to="/createuser" role="button">Signup</Link>
                     <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                    </form>: <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
+                    </form>:<><button onClick={handleUser} className="btn btn-primary mx-2">Profile</button> 
+                    <button onClick={handleLogout} className="btn btn-primary mx-3">Logout</button></>}
         </div>
       </div>
     </nav>
