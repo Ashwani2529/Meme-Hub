@@ -1,9 +1,11 @@
 const express = require("express");
 const User = require("../models/User");
+const Note = require("../models/Note");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const router = express.Router();
+
 const nodemailer = require('nodemailer');
 const JWT = "Ashwani is a good man";
 router.post(
@@ -110,7 +112,7 @@ router.post(
       const hashcode = jwt.sign(data, JWT);
       // console.log(hashcode);
       success=true;
-      res.json({ success,hashcode,email });
+      res.json({ success,hashcode,email,user });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Server Error Occured");
@@ -137,6 +139,27 @@ router.post("/getuser",[
     if (data) {
       const { name, email, password, gender } = data.user;
       res.json({ name, email,password, gender });
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error Occurred");
+  }
+});
+
+router.post("/getall", async (req, res) => {
+  try {
+    let user = await  Note.find().populate("user","name");
+    // console.log(user);
+    const data = {
+    id: user.id,
+      name:user.name     
+    }
+    if (data) {
+      const { name } = data.user;
+      // console.log(name);
+      res.json( name);
     } else {
       res.status(404).json({ error: "User not found" });
     }

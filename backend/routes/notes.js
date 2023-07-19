@@ -28,8 +28,9 @@ router.post(
   "/addnote",
   fetchUser,
   [
+    
     body("title").isLength({ min: 3 }),
-     body("tag").isLength({ min: 1 }),
+    body("tag").isLength({ min: 1 }),
     body("description").isLength({ min: 1 })
   ],
   async (req, res) => {
