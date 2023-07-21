@@ -6,8 +6,13 @@
     width:40%;
     padding: 5px;
     font-family: Arial, sans-serif;
+    display: inline-block;
+    align-self: center;
+    border-radius: 13px;
+    /* border: 2px solid rgba(63, 23, 1, 0.74); */
+    /* text-align: justify; */
   }
-  
+ 
   #profilePicture {
     width: 55px;
     height: 55px;

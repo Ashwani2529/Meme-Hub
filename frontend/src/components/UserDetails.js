@@ -46,7 +46,7 @@ const UserDetails = () => {
           </p>
           <p>
             <b className="boldy">Password: </b>
-            {credentials.password}
+            ********
           </p>
           <p>
             <b className="boldy">Gender:</b>

@@ -158,7 +158,7 @@ const Notes = (props) => {
       <div className="container mx-6">
         {notes.length === 0 && "No notes to display"}
       </div>
-      <div className="row my-3">
+      <div className="row">
         
         {Array.from(notes).map((note) => {
           

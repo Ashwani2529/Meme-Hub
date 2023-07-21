@@ -157,7 +157,7 @@ router.post("/getall", async (req, res) => {
       name:user.name     
     }
     if (data) {
-      const { name } = data.user;
+      const { name } = data;
       // console.log(name);
       res.json( name);
     } else {

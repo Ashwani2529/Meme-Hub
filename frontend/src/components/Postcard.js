@@ -7,8 +7,6 @@ function Postcard() {
       <div className="columns is-vcentered mb-0 is-mobile" style={{ padding: '14px 16px 0px' }}>
         <div className="column is-1 pr-0" style={{ width: '55px' }}>
         <img id="profilePicture" alt=""  />
-
-  
         </div>
         <div className="column is-8 pl-0" style={{marginTop:'-54px'}}>
           <span className="label username-text mb-0">
@@ -40,7 +38,9 @@ function Postcard() {
         </span>
       </div>
       <div id="imageCountBubblesArea"></div>
-      
+      <div className='caption my-3'>
+        <p>This is caption</p>
+      </div>
     </div>
     <div id="instaPostCard">
       <div className="columns is-vcentered mb-0 is-mobile" style={{ padding: '14px 16px 0px' }}>
@@ -78,7 +78,9 @@ function Postcard() {
           </svg>
         </span>
       </div>
-      <div id="imageCountBubblesArea"></div>
+      <div id="imageCountBubblesArea"> <div className='caption my-3'>
+        <p>This is new caption</p>
+      </div></div>
       
     </div>
     </div>
