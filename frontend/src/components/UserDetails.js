@@ -16,13 +16,12 @@ const UserDetails = () => {
 
   const fetchData = async () => {
     try {
-      
-      const response = await fetch("http://localhost:5000/api/auth/getuser",{
-        method:'POST',
-        headers:{
-          "Content-Type": "application/json"
+      const response = await fetch("http://localhost:5000/api/auth/getuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify({"email":localStorage.getItem('email')})
+        body: JSON.stringify({ email: localStorage.getItem("email") }),
       });
       const data = await response.json();
       setCredentials(data);
@@ -46,7 +45,7 @@ const UserDetails = () => {
           </p>
           <p>
             <b className="boldy">Password: </b>
-            ********
+            127.0.0.1
           </p>
           <p>
             <b className="boldy">Gender:</b>
@@ -57,5 +56,4 @@ const UserDetails = () => {
     </div>
   );
 };
-
 export default UserDetails;

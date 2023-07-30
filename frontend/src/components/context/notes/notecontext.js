@@ -1,3 +1,3 @@
 import { createContext } from "react";
-const notecontext=createContext();
+const notecontext = createContext();
 export default notecontext;

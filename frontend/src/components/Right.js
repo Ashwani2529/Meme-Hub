@@ -1,9 +1,13 @@
-import React from 'react'
-import './indexright.modulus.css'
+import React from "react";
+import "./indexright.modulus.css";
 function Right() {
   return (
-    <div className='boxpox'>
-        <div id="fuck"  style={{border:'2px solid green'}} className="col-md-5 col-lg-4 order-md-last">
+    <div className="boxpox">
+      <div
+        id="fuck"
+        style={{ border: "2px solid green" }}
+        className="col-md-5 col-lg-4 order-md-last"
+      >
         <h4 className="d-flex justify-content-between align-items-center mb-3">
           <span className="text-primary">Your cart</span>
           <span className="badge bg-primary rounded-pill">3</span>
@@ -45,13 +49,19 @@ function Right() {
 
         <form className="card p-2">
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Promo code"/>
-            <button type="submit" className="btn btn-secondary">Redeem</button>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Promo code"
+            />
+            <button type="submit" className="btn btn-secondary">
+              Redeem
+            </button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Right
+export default Right;

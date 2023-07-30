@@ -11,7 +11,7 @@ export default function About(props) {
     <div className="container"  style={{ backgroundImage: `url(${require('../img1.jpg')})` }}>
       <h1
         className="my-3"
-        style={{ backgroundcolor: props.mode === "dark" ? "white" : "#042743" }}
+        style={{ backgroundcolor: props.mode === "dark" ? "white" : "#042743",color:"black" }}
       >
 
         This is our About Page

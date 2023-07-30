@@ -2,19 +2,19 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import notecontext from "./context/notes/notecontext";
 import Noteitem from "./Noteitem";
 import "../App.css";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import AddNote from "./AddNote";
 const Notes = (props) => {
   let navigate = useNavigate();
   const context = useContext(notecontext);
-  const { notes, getNotes,editNote } = context;
+  const { notes, getNotes, editNote } = context;
   useEffect(() => {
-    if(localStorage.getItem('token')){
-    getNotes()}
-    else{
-    navigate("/login")
+    if (localStorage.getItem("token")) {
+      getNotes();
+    } else {
+      navigate("/login");
     }
-   // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const ref = useRef(null);
@@ -23,7 +23,7 @@ const Notes = (props) => {
     id: "",
     etitle: "",
     etag: "",
-    edescription: ""
+    edescription: "",
   });
 
   const updateNote = (currentNote) => {
@@ -32,24 +32,34 @@ const Notes = (props) => {
       id: currentNote._id,
       etitle: currentNote.title,
       etag: currentNote.tag,
-      edescription: currentNote.description
     });
   };
 
   const handleClick = (e) => {
-    editNote(note.id, note.etitle, note.etag, note.edescription);
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("etitle", note.etitle);
+    formData.append("etag", note.etag);
+    if (e.target.files[0]) {
+      formData.append("edescription", e.target.files[0]);
+    }
+
+    editNote(note.id, formData);
     refClose.current.click();
-    props.showAlert("Updated","success");
+    props.showAlert("Updated", "success");
   };
-  
 
   const onChange = (e) => {
-    setNote({...note,[e.target.id]:e.target.value,[e.target.name]:e.target.value});
+    setNote({
+      ...note,
+      [e.target.id]: e.target.value,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <>
-      <AddNote showAlert={props.showAlert}/>
+      <AddNote showAlert={props.showAlert} />
       <button
         ref={ref}
         type="button"
@@ -93,7 +103,7 @@ const Notes = (props) => {
                     value={note.etitle}
                     aria-describedby="emailHelp"
                     onChange={onChange}
-                    minLength={5}
+                    minLength={3}
                     placeholder="New Title..."
                     required
                   />
@@ -121,10 +131,9 @@ const Notes = (props) => {
                     className="form-control"
                     id="edescription"
                     name="edescription"
-                    value={note.edescription}
-                    onChange={onChange}
-                    placeholder="New Content..."
-                    minLength={5}
+                    onChange={(e) =>
+                      setNote({ ...note, edescription: e.target.files[0] })
+                    }
                     required
                   />
                 </div>
@@ -153,28 +162,24 @@ const Notes = (props) => {
           </div>
         </div>
       </div>
-      <p id="kuchhbhi" className="my-3">Note: If your Files is not getting added below, Logout and Login Again.</p>
+      <p id="kuchhbhi" className="my-3">
+        Note: If your Files is not getting added below, Logout and Login Again.
+      </p>
       <h2 className="my-3">Your Memes</h2>
       <div className="container mx-6">
         {notes.length === 0 && "No notes to display"}
       </div>
       <div className="row">
-        
         {Array.from(notes).map((note) => {
-          
           return (
             <Noteitem
               key={note._id}
               updateNote={updateNote}
               showAlert={props.showAlert}
               note={note}
-           
             />
-            
           );
         })}
-
-        
       </div>
     </>
   );

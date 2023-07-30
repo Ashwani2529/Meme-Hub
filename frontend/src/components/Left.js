@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import './indexleft.modulus.css';
+import React, { useState, useEffect } from "react";
+import "./indexleft.modulus.css";
 
 function Left() {
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [checkboxes, setCheckboxes] = useState([]);
   const [filteredCheckboxes, setFilteredCheckboxes] = useState([]);
-  const [newCheckboxName, setNewCheckboxName] = useState('');
+  const [newCheckboxName, setNewCheckboxName] = useState("");
 
   useEffect(() => {
-    const savedCheckboxes = JSON.parse(localStorage.getItem('checkboxes')) || [];
+    const savedCheckboxes =
+      JSON.parse(localStorage.getItem("checkboxes")) || [];
     setCheckboxes(savedCheckboxes);
     setFilteredCheckboxes(savedCheckboxes);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('checkboxes', JSON.stringify(checkboxes));
+    localStorage.setItem("checkboxes", JSON.stringify(checkboxes));
     setFilteredCheckboxes(
-      checkboxes.filter((checkbox) => checkbox.title.toLowerCase().includes(searchQuery.toLowerCase()))
+      checkboxes.filter((checkbox) =>
+        checkbox.title.toLowerCase().includes(searchQuery.toLowerCase())
+      )
     );
   }, [checkboxes, searchQuery]);
 
@@ -30,26 +33,33 @@ function Left() {
   };
 
   const addCheckbox = () => {
-    if (newCheckboxName.trim() !== '') {
+    if (newCheckboxName.trim() !== "") {
       const newCheckbox = { title: newCheckboxName };
       setCheckboxes([...checkboxes, newCheckbox]);
-      setNewCheckboxName('');
+      setNewCheckboxName("");
     }
   };
-  
 
   return (
     <>
-      <div className='button'>
-        <button className={`toggle-button ${isPanelOpen ? 'hide-button' : ''}`} onClick={togglePanel}>
-          {isPanelOpen?'^':'>'}
+      <div className="button">
+        <button
+          className={`toggle-button ${isPanelOpen ? "hide-button" : ""}`}
+          onClick={togglePanel}
+        >
+          {isPanelOpen ? "^" : ">"}
         </button>
       </div>
-      <div className={`boxpo my-2 ${isPanelOpen ? 'panel-open' : 'panel-closed'}`}>
+      <div
+        className={`boxpo my-2 ${isPanelOpen ? "panel-open" : "panel-closed"}`}
+      >
         <section className="_167Mu3 _2hbLCH">
           <div className="_213eRC _2ssEMF mx-2">
             <div className="_2gmUFU _3V8raom">Filters</div>
-            <button className={`toggle-icon ${isPanelOpen ? '' : ''}`} onClick={togglePanel}></button>
+            <button
+              className={`toggle-icon ${isPanelOpen ? "" : ""}`}
+              onClick={togglePanel}
+            ></button>
           </div>
           <div className="_3FPh42">
             <div className="_2d0we9">
@@ -82,7 +92,11 @@ function Left() {
               </div>
               {filteredCheckboxes.length > 0 ? (
                 filteredCheckboxes.map((checkbox, index) => (
-                  <div className="_4921Z t0pPfW" title={checkbox.title} key={index}>
+                  <div
+                    className="_4921Z t0pPfW"
+                    title={checkbox.title}
+                    key={index}
+                  >
                     <div className="_1Y4Vhm _4FO7b6">
                       <label className="_2iDkf8 t0pPfW">
                         <input type="checkbox" className="_30VH1S" readOnly />
@@ -120,7 +134,10 @@ function Left() {
                       value={newCheckboxName}
                       onChange={(e) => setNewCheckboxName(e.target.value)}
                     />
-                    <button className="add-checkbox-button" onClick={addCheckbox}>
+                    <button
+                      className="add-checkbox-button"
+                      onClick={addCheckbox}
+                    >
                       Add
                     </button>
                   </label>

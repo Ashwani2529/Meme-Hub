@@ -1,10 +1,16 @@
 import notecontext from "./notecontext";
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 const NoteState = (props) => {
   const host = "http://localhost:5000";
   const initNotes = [];
   const [notes, setNotes] = useState(initNotes);
-  //fetchEverything
+ 
+  useEffect(() => {
+    fetchEverything();
+    // eslint-disable-next-line
+  }, []);
+
+   //fetchEverything
   const fetchEverything = async () => {
     const response = await fetch(`${host}/api/notes/fetcheverything`, {
       method: "GET",
@@ -34,10 +40,12 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":localStorage.getItem('token')      },
+        Accept: "application/json",
+        "auth-token":localStorage.getItem('token')},
       body: JSON.stringify({ title, tag, description }),
     });
     const note = await response.json();
+    // console.log(note);
     setNotes([...notes, note]);
   };
   //Delete Note

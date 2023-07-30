@@ -1,31 +1,30 @@
-import React, { useContext, useState } from 'react';
-import '../index.css';
-import notecontext from './context/notes/notecontext';
+import React, { useContext, useState } from "react";
+import "../index.css";
+import notecontext from "./context/notes/notecontext";
 
 const AddNote = (props) => {
   const context = useContext(notecontext);
   const { addNote } = context;
-  const [note, setNote] = useState({ title: '', tag: '', description: '', imagePreview: null });
+  const [note, setNote] = useState({
+    title: "",
+    tag: "",
+    description: "",
+    imagePreview: null,
+  });
 
   const handleClick = (e) => {
     e.preventDefault();
-    addNote(note.title, note.tag, note.description);
-    setNote({ title: '', tag: '', description: '', imagePreview: null });
-    props.showAlert('File Added', 'success');
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
+    if (e.target.files) {
       const reader = new FileReader();
+      const File = e.target.files[0];
+      reader.readAsDataURL(File);
       reader.onload = () => {
-        setNote((prevNote) => ({
-          ...prevNote,
-          description: file.name,
-          imagePreview: reader.result,
-        }));
+        addNote(note.title, note.tag, reader.result);
+        setNote({ title: "", tag: "", description: "", imagePreview: null });
+        props.showAlert("File Added", "success");
       };
-      reader.readAsDataURL(file);
+    } else {
+      console.log("file null hai");
     }
   };
 
@@ -37,7 +36,7 @@ const AddNote = (props) => {
         </h1>
       </div>
       <div className="container">
-        <form action= "/upload" id="form" method="post" encType="multipart/form-data">
+        <form id="form">
           <div className="col-sm-6 mx-1">
             <label id="sr-only" htmlFor="title">
               Caption
@@ -66,25 +65,33 @@ const AddNote = (props) => {
             ></textarea>
           </div>
           <div className="form-group col-sm-4 my-4">
-            <label id="description" htmlFor="description">
+            <label id="descriptionLabel" htmlFor="fileInput">
               Image
             </label>
             <input
               type="file"
               className="form-control"
               name="description"
-              id="description"
-              onChange={handleImageChange}
+              id="fileInput"
+              onChange={handleClick}
               required
             />
           </div>
           {note.imagePreview && (
             <div className="form-group col-sm-4 my-4">
               <label htmlFor="image-preview">Image Preview:</label>
-              <img src={note.imagePreview} alt="Preview" className="img-fluid" />
+              <img
+                src={note.imagePreview}
+                alt="Preview"
+                className="img-fluid"
+              />
             </div>
           )}
-          <button type="submit" className="btn btn-primary my-1" onClick={handleClick}>
+          <button
+            type="submit"
+            className="btn btn-primary my-1"
+            onClick={handleClick}
+          >
             Post
           </button>
         </form>

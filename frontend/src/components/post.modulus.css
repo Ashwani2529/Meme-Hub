@@ -2,8 +2,8 @@
     background-color: #000;
     border: 1px solid #dbdbdb;
     border-radius: 8px;
-    margin: 110px;
-    width:40%;
+    margin: 82px;
+    width: 25%;
     padding: 5px;
     font-family: Arial, sans-serif;
     display: inline-block;
@@ -12,7 +12,10 @@
     /* border: 2px solid rgba(63, 23, 1, 0.74); */
     /* text-align: justify; */
   }
- 
+  .imagebox{
+    position:relative;
+    width:  -webkit-fill-available;
+  }
   #profilePicture {
     width: 55px;
     height: 55px;
@@ -21,11 +24,15 @@
     background-size: cover;
     background-position: center;
   }
-  
+.post-image1 {
+display: flex;
+align-self: center;
+object-fit: cover;
+justify-content: center;
+  }
   #postImage {
-    width: 100%;
+    width:auto;
     background-image: url("mn.jpg");
- 
     height: auto;
   }
   .container{
