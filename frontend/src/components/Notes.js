@@ -16,14 +16,13 @@ const Notes = (props) => {
     }
     // eslint-disable-next-line
   }, []);
-
   const ref = useRef(null);
   const refClose = useRef(null);
   const [note, setNote] = useState({
     id: "",
     etitle: "",
     etag: "",
-    edescription: "",
+    edescription: ""
   });
 
   const updateNote = (currentNote) => {
@@ -32,30 +31,21 @@ const Notes = (props) => {
       id: currentNote._id,
       etitle: currentNote.title,
       etag: currentNote.tag,
+      edescription: currentNote.description
     });
   };
 
+  
   const handleClick = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("etitle", note.etitle);
-    formData.append("etag", note.etag);
-    if (e.target.files[0]) {
-      formData.append("edescription", e.target.files[0]);
-    }
-
-    editNote(note.id, formData);
+    editNote(note.id, note.etitle, note.etag, note.edescription);
     refClose.current.click();
-    props.showAlert("Updated", "success");
+    props.showAlert("Updated","success");
+  };
+  
+  const onChange = (e) => {
+    setNote({...note,[e.target.id]:e.target.value,[e.target.name]:e.target.value});
   };
 
-  const onChange = (e) => {
-    setNote({
-      ...note,
-      [e.target.id]: e.target.value,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   return (
     <>
@@ -105,7 +95,7 @@ const Notes = (props) => {
                     onChange={onChange}
                     minLength={3}
                     placeholder="New Title..."
-                    required
+                    
                   />
                 </div>
                 <div className="mb-3">
@@ -131,10 +121,8 @@ const Notes = (props) => {
                     className="form-control"
                     id="edescription"
                     name="edescription"
-                    onChange={(e) =>
-                      setNote({ ...note, edescription: e.target.files[0] })
-                    }
-                    required
+                    onChange={onChange}
+                    
                   />
                 </div>
               </form>
@@ -148,10 +136,10 @@ const Notes = (props) => {
               >
                 Close
               </button>
-              <button
-                disabled={
-                  note.etitle.length < 3 || note.edescription.length < 3
-                }
+               <button
+               disabled={
+                note.etitle.length < 3 || note.etag.length < 1
+              }
                 onClick={handleClick}
                 type="button"
                 className="btn btn-success"
