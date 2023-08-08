@@ -36,7 +36,7 @@ justify-content: center;
     height: auto;
   }
   .container{
-    display: inline-table;
+    display: flex;
     justify-content: center;
   }
   #tagIconArea {

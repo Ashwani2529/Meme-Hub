@@ -54,9 +54,6 @@ router.post(
         description,
         user: req.user.id,
       });
-      if (req.file) {
-        note.description = req.file.path;
-      }
       const savedNote = await note.save();
       res.json(savedNote);
     } catch (error) {

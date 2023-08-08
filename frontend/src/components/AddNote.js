@@ -9,24 +9,31 @@ const AddNote = (props) => {
     title: "",
     tag: "",
     description: "",
-    imagePreview: null,
   });
+  
+  function ctb64(e) {
+    var r = new FileReader();
+    r.readAsDataURL(e.target.files[0]);
+    r.onload = () => {
+      setNote({...note ,description:r.result});
+      // e.target.value = "";
+    };
+    r.onerror = (error) => {
+      console.log("Error", error);
+    };
+  }
 
-  const handleClick = (e) => {
+  const handleClick=(e)=>{
+    try{
     e.preventDefault();
-    if (e.target.files) {
-      const reader = new FileReader();
-      const File = e.target.files[0];
-      reader.readAsDataURL(File);
-      reader.onload = () => {
-        addNote(note.title, note.tag, reader.result);
-        setNote({ title: "", tag: "", description: "", imagePreview: null });
-        props.showAlert("File Added", "success");
-      };
-    } else {
-      console.log("file null hai");
-    }
-  };
+    addNote(note.title,note.tag,note.description);
+    setNote({title: "",  tag: "",description: ""});
+    props.showAlert("File Added","success");
+  }
+  catch{
+    console.log("something went wrong");
+  }
+};
 
   return (
     <>
@@ -65,19 +72,12 @@ const AddNote = (props) => {
             ></textarea>
           </div>
           <div className="form-group col-sm-4 my-4">
-            <label id="descriptionLabel" htmlFor="fileInput">
+            <label id="descriptionLabel" htmlFor="description">
               Image
             </label>
-            <input
-              type="file"
-              className="form-control"
-              name="description"
-              id="fileInput"
-              onChange={handleClick}
-              required
-            />
+            <input accept="image/*" type="file" name="description" onChange={(e)=>{ctb64(e)} }/>
           </div>
-          {note.imagePreview && (
+          {/* {note.imagePreview && (
             <div className="form-group col-sm-4 my-4">
               <label htmlFor="image-preview">Image Preview:</label>
               <img
@@ -86,7 +86,7 @@ const AddNote = (props) => {
                 className="img-fluid"
               />
             </div>
-          )}
+          )} */}
           <button
             type="submit"
             className="btn btn-primary my-1"
