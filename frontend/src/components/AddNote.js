@@ -77,16 +77,7 @@ const AddNote = (props) => {
             </label>
             <input accept="image/*" type="file" name="description" onChange={(e)=>{ctb64(e)} }/>
           </div>
-          {/* {note.imagePreview && (
-            <div className="form-group col-sm-4 my-4">
-              <label htmlFor="image-preview">Image Preview:</label>
-              <img
-                src={note.imagePreview}
-                alt="Preview"
-                className="img-fluid"
-              />
-            </div>
-          )} */}
+         
           <button
             type="submit"
             className="btn btn-primary my-1"

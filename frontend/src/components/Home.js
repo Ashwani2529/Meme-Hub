@@ -24,7 +24,7 @@ const Home = (props) => {
     }
   };
   return (
-    <div className="container">
+    <div className="containerimg">
       <div id="instaPostCard">
         <div
           className="columns is-vcentered mb-0 is-mobile"
@@ -37,7 +37,7 @@ const Home = (props) => {
             <span className="label username-text mb-0">
               {names.map((name, index) => (
                 <span key={index}>
-                  {name[0]}
+                  {name}
                   {index !== names.length - 1}
                 </span>
               ))}

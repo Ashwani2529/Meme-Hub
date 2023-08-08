@@ -15,7 +15,12 @@ body {
   display: flex;
   box-shadow: 70px;
 }
-
+#text-dark{
+  color: rgba(0, 0, 0, 0.856);
+}
+#text-light{
+  color:rgba(226, 221, 221, 0.815);
+}
 .form-check-label {
   color: white;
 }
@@ -58,7 +63,7 @@ code {
 }
 
 .nav-link {
-  color: whitesmoke;
+  color: black;
 }
 
 .containerAllNotes {

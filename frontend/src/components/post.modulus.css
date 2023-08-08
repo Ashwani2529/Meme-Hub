@@ -12,6 +12,8 @@
     /* border: 2px solid rgba(63, 23, 1, 0.74); */
     /* text-align: justify; */
   }
+  *{color:white;
+  }
   .imagebox{
     position:relative;
     width:  -webkit-fill-available;
@@ -35,8 +37,12 @@ justify-content: center;
     background-image: url("mn.jpg");
     height: auto;
   }
-  .container{
+  .containerimg{
     display: flex;
+    justify-content: center;
+  }
+  .container{
+    display: inline-table;
     justify-content: center;
   }
   #tagIconArea {
@@ -54,7 +60,7 @@ justify-content: center;
   }
   
   #postTextUserName a {
-    color: black;
+    color:white;
   }
   
 

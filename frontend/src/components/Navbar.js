@@ -53,16 +53,18 @@ const Navbar = (props) => {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
+            <li  className="nav-item">
+              <Link 
                 className={`nav-link ${
                   location.pathname === "/home" ? "active" : ""
                 }`}
                 to="/home"
               >
-                <u>
+                <u >
                   {" "}
-                  <b>Posts</b>
+                  <b  id={`text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}>Posts</b>
                 </u>
               </Link>
             </li>
@@ -76,11 +78,7 @@ const Navbar = (props) => {
                 {props.aboutText}
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className={`nav-link ${location.pathname==="/getuser"?"active":""}`} to="/getuser">
-                User
-              </Link>
-            </li> */}
+            
           </ul>
           <div
             className={`form-check form-switch text-${
