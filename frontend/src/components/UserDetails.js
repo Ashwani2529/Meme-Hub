@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "./indexing.module.css";
+let user = {};
 const UserDetails = () => {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -12,8 +13,10 @@ const UserDetails = () => {
     if (localStorage.getItem("token")) {
       fetchData();
     }
+    // eslint-disable-next-line
   }, []);
 
+ 
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/auth/getuser", {
@@ -24,7 +27,9 @@ const UserDetails = () => {
         body: JSON.stringify({ email: localStorage.getItem("email") }),
       });
       const data = await response.json();
+      
       setCredentials(data);
+      user = credentials.name;
     } catch (error) {
       console.log(error);
     }
@@ -57,3 +62,4 @@ const UserDetails = () => {
   );
 };
 export default UserDetails;
+export { user };

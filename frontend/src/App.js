@@ -16,6 +16,7 @@ import All from "./components/All";
 import UserDetails from "./components/UserDetails";
 // import Postcard from "./components/Postcard";
 import Page from "./Page";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -72,6 +73,12 @@ function App() {
               path="/page"
               element={<Page mode={mode} showAlert={showAlert} />}
             />
+             <Route
+              path="/chat"
+              element={<Chat mode={mode} showAlert={showAlert} />}
+            />
+
+          
           </Routes>
         </Router>
       </div>

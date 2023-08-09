@@ -37,7 +37,7 @@ const Home = (props) => {
             <span className="label username-text mb-0">
               {names.map((name, index) => (
                 <span key={index}>
-                  {name}
+                  {name[0]}
                   {index !== names.length - 1}
                 </span>
               ))}

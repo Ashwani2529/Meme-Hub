@@ -113,10 +113,13 @@ const Navbar = (props) => {
             </form>
           ) : (
             <>
+             <Link className="btn btn-primary mx-2" to="/chat" role="button">
+                Chat
+              </Link>
               <button onClick={handleUser} className="btn btn-primary mx-2">
                 Profile
               </button>
-              <button onClick={handleLogout} className="btn btn-primary mx-3">
+              <button onClick={handleLogout} className="btn btn-primary mx-2">
                 Logout
               </button>
             </>
