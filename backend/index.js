@@ -1,9 +1,10 @@
 const connectToMongo = require("./db.js");
 const express = require("express");
 const http = require('http');
-var cors = require("cors");
+const cors = require("cors");
 const app = express();
-const socketIO = require('socket.io');
+// const socketIO = require('socket.io');
+const {Server}=require('socket.io');
 const port = 5000;
 app.use(cors());
 const users = [{}];
@@ -12,7 +13,16 @@ connectToMongo();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const server = http.createServer(app);
-const io = socketIO(server);
+const io=new Server(server,{
+cors:{
+  origin:"http://localhost:3000",
+  methods:["GET","POST","DELETE"],
+
+},
+});
+
+
+// const io = socketIO(server);
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 
@@ -22,7 +32,7 @@ app.get("/", (req, res) => {
 
 //socket
 io.on("connection", (socket) => { 
-  console.log("socket connected")// Pass the socket object as a parameter
+  // console.log("sggggg")// Pass the socket object as a parameter
   socket.on('joined', ({ user }) => {
     users[socket.id] = user;
     socket.broadcast.emit('userJoined', { user: "Ashwani: ", message: ` ${users[socket.id]} joined the Chat` });
@@ -41,3 +51,6 @@ io.on("connection", (socket) => {
 app.listen(port, () => {
   console.log(`${port}`);
 });
+server.listen(3001,()=>{
+  // console.log("socket connected");
+})

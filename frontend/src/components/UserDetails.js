@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "./indexing.module.css";
-let user = {};
+let user ;
 const UserDetails = () => {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -30,6 +30,7 @@ const UserDetails = () => {
       
       setCredentials(data);
       user = credentials.name;
+      // console.log(user);
     } catch (error) {
       console.log(error);
     }
@@ -62,4 +63,4 @@ const UserDetails = () => {
   );
 };
 export default UserDetails;
-export { user };
+export {user};

@@ -157,6 +157,7 @@ router.get("/getall", async (req, res) => {
     const users = await Note.find().populate("user", "name");
     if (users.length > 0) {
       const names = users.map((user) => user.user.name);
+      // console.log(names)
       res.json(names);
     } else {
       res.status(404).json({ error: "Users not found" });

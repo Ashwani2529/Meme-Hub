@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { user } from "../UserDetails";
+import {user} from "../UserDetails";
 import {io} from "socket.io-client";
 import "./Chat.css";
 import sendLogo from "../images/send.png";
@@ -10,7 +10,7 @@ import closeIcon from "../images/close.png";
 let socket;
 
 // const ENDPOINT = "https://chatverse-xl8a.onrender.com";
-const ENDPOINT="http://localhost:5000";
+const ENDPOINT="http://localhost:3001";
 
 const Chat = () => {
     const [id, setid] = useState("");
@@ -24,13 +24,14 @@ const Chat = () => {
     }
 
     useEffect(() => {
+        console.log(user);
         socket = io(ENDPOINT, {  
             cors: {
-            origin: "http://localhost:5000",
+            origin: "http://localhost:3001",
             credentials: true
           },transports : ['websocket'] });
 
-        socket.on('connect', () => {
+        socket.on('connection', () => {
             setid(socket.id);
 
         })

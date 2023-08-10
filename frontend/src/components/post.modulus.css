@@ -12,8 +12,8 @@
     /* border: 2px solid rgba(63, 23, 1, 0.74); */
     /* text-align: justify; */
   }
-  *{color:white;
-  }
+  /* *{color:white;
+  } */
   .imagebox{
     position:relative;
     width:  -webkit-fill-available;
@@ -38,6 +38,7 @@ justify-content: center;
     height: auto;
   }
   .containerimg{
+    color: white;
     display: flex;
     justify-content: center;
   }

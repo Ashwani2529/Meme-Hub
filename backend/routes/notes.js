@@ -25,7 +25,7 @@ router.get("/fetchallnotes", fetchUser, async (req, res) => {
 });
 router.get("/fetcheverything", async (req, res) => {
   try {
-    const notes = await Note.find();
+    const notes = await Note.find().populate('user');
     res.json(notes);
   } catch (error) {
     console.error(error.message);

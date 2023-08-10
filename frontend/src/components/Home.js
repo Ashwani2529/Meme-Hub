@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./post.modulus.css";
 const Home = (props) => {
-  const { note } = props;
-  const [names, setNames] = useState([]);
-  useEffect(() => {
-    fetchUser();
-    // eslint-disable-next-line
-  }, []);
+  // eslint-disable-next-line
+  const { note,name } = props;
+  // const [names, setNames] = useState([]);
+  // useEffect(() => {
+  //   fetchUser();
+   
+  //   // console.log(name)
+  //   // console.log(note.user.name);
+  //    
+  // }, []);
 
-  const fetchUser = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/auth/getall", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
-
-      setNames(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchUser = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:5000/api/auth/getall", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     // console.log(data);
+  //     setNames(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <div className="containerimg">
       <div id="instaPostCard">
@@ -35,12 +39,11 @@ const Home = (props) => {
           </div>
           <div className="column is-8 pl-0" style={{ marginTop: "-54px" }}>
             <span className="label username-text mb-0">
-              {names.map((name, index) => (
-                <span key={index}>
-                  {name[0]}
-                  {index !== names.length - 1}
+                        <span>
+                 {note.user.name}
+               
                 </span>
-              ))}
+            
               <span id="verifiedIcon" style={{ color: "rgb(27, 149, 224)" }}>
                 <svg width="14" height="14">
                   <use href="/"></use>
