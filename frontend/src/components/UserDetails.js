@@ -27,10 +27,10 @@ const UserDetails = () => {
         body: JSON.stringify({ email: localStorage.getItem("email") }),
       });
       const data = await response.json();
-      
+      user = data.name;
       setCredentials(data);
-      user = credentials.name;
-      // console.log(user);
+      
+      
     } catch (error) {
       console.log(error);
     }

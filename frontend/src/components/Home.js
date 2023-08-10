@@ -1,8 +1,10 @@
 import React from "react";
 import "./post.modulus.css";
+
 const Home = (props) => {
   // eslint-disable-next-line
-  const { note,name } = props;
+  const { note} = props;
+ 
   // const [names, setNames] = useState([]);
   // useEffect(() => {
   //   fetchUser();

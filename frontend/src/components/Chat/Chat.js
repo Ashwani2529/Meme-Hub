@@ -31,11 +31,12 @@ const Chat = () => {
             credentials: true
           },transports : ['websocket'] });
 
+
         socket.on('connection', () => {
             setid(socket.id);
 
         })
-        console.log(socket);
+        // console.log(socket);
         socket.emit('joined', { user });
 
         socket.on('welcome', (data) => {
@@ -74,7 +75,7 @@ const Chat = () => {
             <div className="chatContainer">
                 <div className="header">
                     <h2>ChatVerse</h2>
-                    <a href="/"> <img src={closeIcon} alt="Close" /></a>
+                    <a href="/user"> <img src={closeIcon} alt="Close" /></a>
                 </div>
                 <ReactScrollToBottom className="chatBox">
                     {showWelcome && <Message user="Ashwani: " message={`Welcome to the ChatVerse, ${user}`} />} {/* Show welcome message */}
