@@ -4,7 +4,7 @@ const http = require('http');
 const cors = require("cors");
 const app = express();
 // const socketIO = require('socket.io');
-const {Server}=require('socket.io');
+const socketIO = require('socket.io');
 const port = 5000;
 app.use(cors());
 const users = [{}];
@@ -13,13 +13,7 @@ connectToMongo();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const server = http.createServer(app);
-const io=new Server(server,{
-cors:{
-  origin:"http://localhost:3000",
-  methods:["GET","POST"],
-
-},
-});
+const io = socketIO(server);
 
 
 // const io = socketIO(server);
@@ -31,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 //socket
-io.on("connection", (socket) => { 
+io.on("connect", (socket) => { 
   // console.log("sggggg")// Pass the socket object as a parameter
   socket.on('joined', ({ user }) => {
     users[socket.id] = user;
@@ -40,11 +34,13 @@ io.on("connection", (socket) => {
   })
 
   socket.on('message', ({ message, id }) => {
+    // console.log(users[id]);
     io.emit('sendMessage', { user: users[id], message, id });
   })
 
   socket.on('disconnect', () => {
     socket.broadcast.emit('leave', { user: "Ashwani", message: `${users[socket.id]} left` });
+    // delete users[socket.id];
   })
 });
 

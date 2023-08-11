@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {user} from "../UserDetails";
-import {io} from "socket.io-client";
+import socketIo from "socket.io-client";
 import "./Chat.css";
 import sendLogo from "../images/send.png";
 import Message from "../Message/Message";
@@ -24,15 +24,11 @@ const Chat = () => {
     }
 
     useEffect(() => {
-        console.log(user);
-        socket = io(ENDPOINT, {  
-            cors: {
-            origin: "http://localhost:3001",
-            credentials: true
-          },transports : ['websocket'] });
+      
+        socket = socketIo(ENDPOINT, { transports: ['websocket'] });
 
 
-        socket.on('connection', () => {
+        socket.on('connect', () => {
             setid(socket.id);
 
         })
@@ -62,6 +58,7 @@ const Chat = () => {
         [])
 
     useEffect(() => {
+        
         socket.on('sendMessage', (data) => {
             setMessages([...messages, data]);
         });
@@ -79,7 +76,7 @@ const Chat = () => {
                 </div>
                 <ReactScrollToBottom className="chatBox">
                     {showWelcome && <Message user="Ashwani: " message={`Welcome to the ChatVerse, ${user}`} />} {/* Show welcome message */}
-                    {messages.map((item, i) => <Message user={item.id === id ? '' : item.user} message={item.message} classs={item.id === id ? 'right' : 'left'} />)}
+                    {messages.map((item,id) => <Message user={item.id === id ? '' : item.user} message={item.message} classs={item.id === id ? 'right' : 'left'} />)}
                 </ReactScrollToBottom>
                 <div className="inputBox" id="inputwala">
                     <input onKeyDown={(event) => event.key === 'Enter' ? send() : null} type="text" id="chatInput" />
