@@ -39,6 +39,7 @@ const UserDetails = () => {
   return (
     <div className="col-md my-4">
       <div className="card mx-2">
+      <img className="pfimg"  alt=""/>
         <div className="card-body my-2">
           <p>
             <b className="boldy">Name: </b>

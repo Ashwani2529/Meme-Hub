@@ -11,10 +11,7 @@ import NoteState from "./components/context/notes/NoteState";
 import { useState } from "react";
 import Alert from "./components/Alert";
 import All from "./components/All";
-// import Left from "./components/Left";
-// import Right from "./components/Right";
 import UserDetails from "./components/UserDetails";
-// import Postcard from "./components/Postcard";
 import Page from "./Page";
 import Chat from "./components/Chat/Chat";
 

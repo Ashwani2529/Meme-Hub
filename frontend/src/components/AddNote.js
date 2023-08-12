@@ -39,14 +39,14 @@ const AddNote = (props) => {
     <>
       <div className="container my-5">
         <h1 className="heading">
-          <b>Upload New Meme</b>
+          <b><i class="bi bi-file-richtext"></i> Upload New Meme <i class="bi bi-file-richtext"></i></b>
         </h1>
       </div>
       <div className="container">
         <form id="form">
           <div className="col-sm-6 mx-1">
             <label id="sr-only" htmlFor="title">
-              Caption
+            <i class="bi bi-badge-cc mx-2"></i>Caption
             </label>
             <textarea
               className="form-control"
@@ -60,7 +60,7 @@ const AddNote = (props) => {
           </div>
           <div className="col-sm-4 mx-1 my-4">
             <label id="sr-only" htmlFor="tag">
-              Tags
+            <i class="bi bi-tags mx-2"></i> Tags
             </label>
             <textarea
               className="form-control"
@@ -73,9 +73,9 @@ const AddNote = (props) => {
           </div>
           <div className="form-group col-sm-4 my-4">
             <label id="descriptionLabel" htmlFor="description">
-              Image
+            <i class="bi bi-image mx-2"></i> Image
             </label>
-            <input accept="image/*" type="file" name="description" onChange={(e)=>{ctb64(e)} }/>
+            <input className="photo my-2" accept="image/*" type="file" name="description" onChange={(e)=>{ctb64(e)} }/>
           </div>
          
           <button
@@ -83,7 +83,7 @@ const AddNote = (props) => {
             className="btn btn-primary my-1"
             onClick={handleClick}
           >
-            Post
+            Post <i class="bi bi-plus-circle"></i>
           </button>
         </form>
       </div>

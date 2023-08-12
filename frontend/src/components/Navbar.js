@@ -22,7 +22,7 @@ const Navbar = (props) => {
   // const [text, setText] = useState('');
   return (
     // <di className="Nbody">
-    <nav
+    <nav id="navbarback"
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
@@ -50,7 +50,7 @@ const Navbar = (props) => {
                 aria-current="page"
                 to="/"
               >
-                Home
+                Home <i class="bi bi-house-door"></i>
               </Link>
             </li>
             <li  className="nav-item">
@@ -64,7 +64,7 @@ const Navbar = (props) => {
                   {" "}
                   <b  id={`text-${
               props.mode === "light" ? "dark" : "light"
-            }`}>Posts</b>
+            }`}>Posts <i class="bi bi-file-image"></i></b>
                 </u>
               </Link>
             </li>
@@ -78,7 +78,8 @@ const Navbar = (props) => {
                 {props.aboutText}
               </Link>
             </li>
-            
+          
+            <img id="profilePicturex" alt=""/> 
           </ul>
           <div
             className={`form-check form-switch text-${
@@ -114,13 +115,13 @@ const Navbar = (props) => {
           ) : (
             <>
              <Link className="btn btn-primary mx-2" to="/chat" role="button">
-                Chat
+                Chat <i class="bi bi-chat"></i>
               </Link>
               <button onClick={handleUser} className="btn btn-primary mx-2">
-                Profile
+                Profile <i class="bi bi-person-circle"></i>
               </button>
               <button onClick={handleLogout} className="btn btn-primary mx-2">
-                Logout
+                Logout <i class="bi bi-exclamation-circle"></i>
               </button>
             </>
           )}
@@ -136,7 +137,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: "MemeHub",
+  title: "MemeHUB",
   aboutText: "About",
 };
 export default Navbar;

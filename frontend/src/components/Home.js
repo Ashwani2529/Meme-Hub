@@ -5,30 +5,6 @@ const Home = (props) => {
   // eslint-disable-next-line
   const { note} = props;
  
-  // const [names, setNames] = useState([]);
-  // useEffect(() => {
-  //   fetchUser();
-   
-  //   // console.log(name)
-  //   // console.log(note.user.name);
-  //    
-  // }, []);
-
-  // const fetchUser = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:5000/api/auth/getall", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     const data = await response.json();
-  //     // console.log(data);
-  //     setNames(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   return (
     <div className="containerimg">
       <div id="instaPostCard">

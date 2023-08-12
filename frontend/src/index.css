@@ -9,6 +9,7 @@ body {
   overflow-x: hidden;
 }
 
+
 .form-control {
   border: 2px solid rgb(75, 90, 70);
   border-radius: 13px;
@@ -18,17 +19,35 @@ body {
 #text-dark{
   color: rgba(0, 0, 0, 0.856);
 }
-#text-light{
-  color:rgba(226, 221, 221, 0.815);
+.form-check-label:hover{
+  transition: ease-out 0.1s;
+    transform: scale(0.95);
 }
 .form-check-label {
+  transition: ease-in 0.1s;
   color: white;
 }
-
+.navbar-light .navbar-nav .nav-link{
+  color: rgba(0,0,0);
+}
+.navbar-dark .navbar-nav .nav-link,#text-light{
+  color: rgba(255,255,255,255);
+}
+.bg-light{background-image: linear-gradient(to right, #9796f0, #9bcf99);}
+.bg-dark{
+  color: white;
+  background: radial-gradient(
+    circle closest-corner at center 125px,
+    #222,
+    black 40%
+  ) no-repeat;
+  color:white;
+}
 .container {
   color: wheat;
   display: flexbox;
   align-self: center;
+  /* height: 100%; */
 }
 
 #sr-only {
@@ -36,12 +55,24 @@ body {
   justify-content: left;
   color:white;
 }
-
-#description {
+li.nav-item{margin-top: 1%;
+}
+li.nav-item:hover{
+  transition: ease-in 1ms;
+    transform: scale(0.93);
+    /* color: black; */
+}
+.photo{
   display: flex;
   justify-content: left;
-  color: white;
 }
+
+#descriptionLabel {
+  display: flex;
+  justify-content: left;
+  color:white;
+}
+
 
 .heading {
   text-align: center;
@@ -61,8 +92,12 @@ code {
 .navbar-brand {
   color: rgb(182, 52, 1);
 }
-
+.navbar-brand:hover{
+  transition: ease-in 0.3s;
+  transform: scale(0.9);
+}
 .nav-link {
+  width: max-content;
   color: black;
 }
 
@@ -79,16 +114,27 @@ code {
 i {
   cursor: context-menu;
 }
+.pfimg{
+  margin: 0 auto;
+ display: block;
+ height: 55px;
+ width: 55px;
+ border-radius: 50%;
+ background-color: white;
+ background-image: url("../src/components//images/DP.png");
+}
 
 .card {
-  background-color: rgba(199, 101, 3, 0.281);
+  /* background-color: black; */
+  background-color: rgba(109, 226, 177, 0.39);
   padding: 3px;
   margin: 3px;
-  color: rgb(168, 204, 252);
+  color: rgb(255, 255, 255);
   display: inline-flex;
   border-radius: 13px;
   border: 2px solid rgba(63, 23, 1, 0.74);
   text-align: justify;
+  /* text-align: center; */
 }
 
 .boldy {
@@ -96,5 +142,11 @@ i {
 }
 
 .btn {
+  width: max-content;
   border-radius: 9px;
+  transition: 0.7s ease-in;
+}
+.btn:hover{
+  transition: ease-out 0.5s;
+    transform: scale(1.1);
 }

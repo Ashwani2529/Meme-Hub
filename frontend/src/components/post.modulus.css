@@ -1,6 +1,6 @@
 #instaPostCard {
-    background-color: #000;
-    border: 1px solid #dbdbdb;
+    background-color: #111010;
+    border: 0.8px solid #dbdbdb;
     border-radius: 8px;
     margin: 82px;
     width: 25%;
@@ -9,20 +9,37 @@
     display: inline-block;
     align-self: center;
     border-radius: 13px;
-    /* border: 2px solid rgba(63, 23, 1, 0.74); */
-    /* text-align: justify; */
+    
   }
-  /* *{color:white;
-  } */
+ 
   .imagebox{
     position:relative;
     width:  -webkit-fill-available;
   }
-  #profilePicture {
+  #navbarSupportedContent {
+    display: flow;
+    align-items: center; 
+    /* justify-content: space-between; */
+  }
+  #profilePicturex:hover{
+    transition: ease-out 0.5s;
+    transform: scale(1.1);
+    /* scale: (0.1); */
+  }
+  #profilePicturex {
+    margin: 0  280px; 
+    /* background: black; */
+   transition: ease-in 0.8s;
+    transform: scale(0.9);
+    background-image: url("./images/logoc.png");
+  }
+  #profilePicture{background-color: white;background-image: url("./images/DP.png");}
+  #profilePicture,#profilePicturex {
     width: 55px;
     height: 55px;
+   
     border-radius: 50%;
-   background-image: url("qw.jpg");
+   
     background-size: cover;
     background-position: center;
   }
@@ -34,7 +51,7 @@ justify-content: center;
   }
   #postImage {
     width:auto;
-    background-image: url("mn.jpg");
+    background-image: url("./images/mn.jpg");
     height: auto;
   }
   .containerimg{

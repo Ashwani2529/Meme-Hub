@@ -10,7 +10,7 @@
 
 body {
     background-color: black;
-    /* Add any additional styles */
+    
 }
 
 
@@ -27,7 +27,7 @@ body {
     align-items: center;
     height: 86vh;
     width: 100%;
-    background: url('bg-01.jpg') no-repeat;
+    background: url('./images/bg-01.jpg') no-repeat;
     background-position: center;
     background-size:cover;
     }

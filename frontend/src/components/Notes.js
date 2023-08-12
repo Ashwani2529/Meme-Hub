@@ -154,7 +154,7 @@ const Notes = (props) => {
       <p id="kuchhbhi" className="my-3">
         Note: If your Files is not getting added below, Logout and Login Again.
       </p>
-      <h2 className="my-3">Your Memes</h2>
+      <h2 className="my-0">Your Memes</h2>
       <div className="container mx-6">
         {notes.length === 0 && "No notes to display"}
       </div>

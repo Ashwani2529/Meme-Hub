@@ -41,7 +41,7 @@ const Noteitem = (props) => {
           className="columns is-vcentered mb-0 is-mobile"
           style={{ padding: "14px 16px 0px" }}
         >
-          <div className="column is-1 pr-0" style={{ width: "55px" }}>
+          <div className="column is-1 pr-0" style={{ width: "56px" }}>
             <img id="profilePicture" alt="" />
           </div>
           <div className="column is-8 pl-0" style={{ marginTop: "-54px" }}>
