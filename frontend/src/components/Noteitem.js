@@ -4,10 +4,9 @@ import "./post.modulus.css";
 import notecontext from "./context/notes/notecontext";
 
 const Noteitem = (props) => {
-  const context = useContext(notecontext);
   const { note, updateNote } = props;
+  const context = useContext(notecontext);
   const { deleteNote } = context;
-
   const [credentials, setCredentials] = useState({
     name: "",
     tag: "",
@@ -18,6 +17,7 @@ const Noteitem = (props) => {
       fetchData();
     }
   }, []);
+  
 
   const fetchData = async () => {
     try {
@@ -35,7 +35,7 @@ const Noteitem = (props) => {
     }
   };
   return (
-    <div className="container">
+   <div className="container">
       <div id="instaPostCard">
         <div
           className="columns is-vcentered mb-0 is-mobile"
@@ -80,15 +80,15 @@ const Noteitem = (props) => {
 
         <div className="caption my-2">
           <p>{note.title}</p>
-          <i
-            className="fas fa-trash-alt mx-4"
+          <i id="eddl"
+            className="fas fa-trash-alt mx-2" 
             onClick={() => {
               deleteNote(note._id);
               props.showAlert("Deleted", "success");
             }}
           ></i>
-          <i
-            className="fas fa-edit mx-4"
+          <i 
+            className="fas fa-edit mx-2 " 
             onClick={() => {
               updateNote(note);
             }}

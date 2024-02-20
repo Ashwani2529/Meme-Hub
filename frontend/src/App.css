@@ -1,6 +1,21 @@
 .App {
   text-align: center;
-  background-color: #272b33cb;
+  background-color: #15171bcb;
+}
+.form-controlx {
+  cursor: default;
+  border: 2px solid rgb(168, 187, 162);
+  border-radius: 13px;
+  display: flex;
+  box-shadow: 70px;
+  resize: none;
+  background: -webkit-linear-gradient(rgb(180, 141, 243), rgb(99, 233, 95));
+  -webkit-background-clip:text;
+  background-clip: none;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: lighter;
+  font-size: 1.3rem;
 }
 
 .container {
@@ -14,11 +29,13 @@ h2{
 }
 
 #kuchhbhi {
-  color: rgb(0, 247, 194);
-  font-style: oblique;
+  background: -webkit-linear-gradient(rgb(180, 141, 243), rgb(99, 233, 95));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
-  font-size: 1rem;
+  text-decoration: overline;
+  font-size: 2rem;
 }
 
 .App-logo {

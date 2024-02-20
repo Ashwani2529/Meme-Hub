@@ -50,7 +50,7 @@ const Navbar = (props) => {
                 aria-current="page"
                 to="/"
               >
-                Home <i class="bi bi-house-door"></i>
+                Home <i className="bi bi-house-door"></i>
               </Link>
             </li>
             <li  className="nav-item">
@@ -64,7 +64,7 @@ const Navbar = (props) => {
                   {" "}
                   <b  id={`text-${
               props.mode === "light" ? "dark" : "light"
-            }`}>Posts <i class="bi bi-file-image"></i></b>
+            }`}>Posts <i className="bi bi-file-image"></i></b>
                 </u>
               </Link>
             </li>
@@ -115,13 +115,13 @@ const Navbar = (props) => {
           ) : (
             <>
              <Link className="btn btn-primary mx-2" to="/chat" role="button">
-                Chat <i class="bi bi-chat"></i>
+                Chat <i className="bi bi-chat"></i>
               </Link>
               <button onClick={handleUser} className="btn btn-primary mx-2">
-                Profile <i class="bi bi-person-circle"></i>
+                Profile <i className="bi bi-person-circle"></i>
               </button>
               <button onClick={handleLogout} className="btn btn-primary mx-2">
-                Logout <i class="bi bi-exclamation-circle"></i>
+                Logout <i className="bi bi-exclamation-circle"></i>
               </button>
             </>
           )}

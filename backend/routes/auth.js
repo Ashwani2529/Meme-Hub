@@ -132,7 +132,7 @@ router.post(
       let user = await User.findOne({ email: req.body.email });
       const data = {
         user: {
-          id: user.id,
+          uid: user.id,
           name: user.name,
           email: user.email,
           password: user.password,
@@ -140,8 +140,8 @@ router.post(
         },
       };
       if (data) {
-        const { name, email, password, gender } = data.user;
-        res.json({ name, email, password, gender });
+        const {uid, name, email, password, gender } = data.user;
+        res.json({uid, name, email, password, gender });
       } else {
         res.status(404).json({ error: "User not found" });
       }

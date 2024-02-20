@@ -67,7 +67,7 @@ const Notes = (props) => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog" style={{color:'black'}}>
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
@@ -87,6 +87,7 @@ const Notes = (props) => {
                     Caption
                   </label>
                   <input
+                  
                     type="text"
                     className="form-control"
                     id="etitle"
@@ -151,10 +152,8 @@ const Notes = (props) => {
           </div>
         </div>
       </div>
-      <p id="kuchhbhi" className="my-3">
-        Note: If your Files is not getting added below, Logout and Login Again.
-      </p>
-      <h2 className="my-0">Your Memes</h2>
+      
+      <h2 id="kuchhbhi" className="my-4">Your Memes</h2>
       <div className="container mx-6">
         {notes.length === 0 && "No notes to display"}
       </div>
