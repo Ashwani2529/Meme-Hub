@@ -116,7 +116,7 @@ const Notes = (props) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="description" className="form-label">
-                    Image
+                    File
                   </label>
                   <input
                     type="file"

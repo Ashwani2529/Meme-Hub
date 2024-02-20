@@ -65,18 +65,37 @@ const Noteitem = (props) => {
         </div>
 
         <div className="post-image1">
-          <img
-            className="imagebox"
-            src={note.description}
-            alt="Uploaded"
-            style={{
-              width: "300px",
-              height: "300px",
-              objectFit: "contain",
-              margin: "2px",
-            }}
-          />
-        </div>
+  {note.description && (
+    note.description.includes(".mp4") ? (
+      <video
+        controls
+        className="imagebox"
+        style={{
+          width: "300px",
+          height: "300px",
+          objectFit: "contain",
+          margin: "2px",
+        }}
+      >
+        <source src={note.description} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <img
+        className="imagebox"
+        src={note.description}
+        alt="Uploaded"
+        style={{
+          width: "300px",
+          height: "300px",
+          objectFit: "contain",
+          margin: "2px",
+        }}
+      />
+    )
+  )}
+</div>
+
 
         <div className="caption my-2">
           <p>{note.title}</p>

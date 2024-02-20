@@ -30,7 +30,7 @@ io.on("connect", (socket) => {
   socket.on('joined', ({ user }) => {
     users[socket.id] = user;
     socket.broadcast.emit('userJoined', { user: "Ashwani: ", message: ` ${users[socket.id]} joined the Chat` });
-    socket.emit('welcome', { user: "Ashwani ", message: `Welcome to the ChatVerse ,${users[socket.id]} ` })
+    socket.emit('welcome', { user: "Ashwani ", message: `Welcome to the ChatVerse, ${users[socket.id]} ` })
   })
 
   socket.on('message', ({ message, id }) => {

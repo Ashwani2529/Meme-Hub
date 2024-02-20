@@ -40,17 +40,36 @@ const Home = (props) => {
           </div>
         </div>
         <div className="post-image1">
-          <img
-            className="imagebox"
-            src={note.description}
-            alt="Uploaded"
-            style={{
-              justifyContent: "center",
-              objectFit: "cover",
-              margin: "2px",
-            }}
-          />
-        </div>
+  {note.description && (
+    note.description.includes(".mp4") ? (
+      <video
+        controls
+        className="imagebox"
+        style={{
+          width: "300px",
+          height: "300px",
+          objectFit: "contain",
+          margin: "2px",
+        }}
+      >
+        <source src={note.description} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <img
+        className="imagebox"
+        src={note.description}
+        alt="Uploaded"
+        style={{
+          width: "300px",
+          height: "300px",
+          objectFit: "contain",
+          margin: "2px",
+        }}
+      />
+    )
+  )}
+</div>
         <div className="tag-icon is-hidden" id="tagIconArea">
           <span className="material-icons has-text-white">
             <svg width="12" height="12">

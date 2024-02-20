@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "./indexing.module.css";
-let user ;
-let userid;
+
 const UserDetails = () => {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -28,8 +27,6 @@ const UserDetails = () => {
         body: JSON.stringify({ email: localStorage.getItem("email") }),
       });
       const data = await response.json();
-      user = data.name;
-      userid=data.uid;
       setCredentials(data);
       
       
@@ -66,4 +63,3 @@ const UserDetails = () => {
   );
 };
 export default UserDetails;
-export {user,userid};

@@ -1,37 +1,25 @@
 .messageBox{
-    padding: 1.4vmax;
-    margin: 1.3vmax;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1vmax;
+    margin: 1vmax;
     border-radius: 0.5vmax;
+    display: inline-block;
     clear: both;
     font-size: 1.2vmax;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right{
-    /* float: right; */
+    float: right;
     background-color: crimson;
     color: white;
-    font-size: 1.29vmax;
-    display: inline-block;
-     align-items: center;
-     justify-content: center;
-     /* float: ce; */
-     border-radius: 7px;
-     text-align: center;
+    text-align: right;
 }
 
 .left{
     font-size: 1.29vmax;
-   display: inline-block;
-    align-items: center;
-    justify-content: center;
-    /* float: ce; */
-    border-radius: 7px;
-    text-align: center;
+    float: left;
+    border-radius: 19px;
+    text-align: left;
     background-color: rgb(196, 255, 184);
     
 }
